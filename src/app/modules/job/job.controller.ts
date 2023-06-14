@@ -1,10 +1,10 @@
 import { NextFunction, Request, Response  } from "express";
-import { createUser, getUserApi, getUsersApi, patchUser, removeUser } from "./user.service";
+import { createJob, getJobApi, getJobsApi, patchJob, removeJob } from "./job.service";;
 
 // get all users 
 export const getUsers = async (req: Request, res: Response, next: NextFunction) => {
     try {
-        const users = await getUsersApi();
+        const users = await getJobsApi();
         return res.status(201).json({ status: "success", data: users })
     } catch (error) {
         console.log(error)
@@ -16,7 +16,7 @@ export const getUsers = async (req: Request, res: Response, next: NextFunction) 
 export const getUser = async (req: Request, res: Response, next: NextFunction) => {
     try {
         const {_id} = req.params;
-        const users = await getUserApi(_id);
+        const users = await getJobApi(_id);
         return res.status(201).json({ status: "success", data: users })
     } catch (error) {
         console.log(error)
@@ -28,7 +28,7 @@ export const getUser = async (req: Request, res: Response, next: NextFunction) =
 export const createUserApi = async (req:Request,res:Response, next:NextFunction) => {
     try {
         const data = req.body;
-        const user = await createUser(data);
+        const user = await createJob(data);
         return res.status(201).json({ status: "success", data: user })
         
     } catch (error) {
@@ -42,7 +42,7 @@ export const updateUser = async (req: Request, res: Response, next: NextFunction
     try {
         const { _id } = req.params;
         const data = req.body;
-        const user = await patchUser({_id, data});
+        const user = await patchJob({_id, data});
         return res.status(201).json({ status: "success", data: user })
 
     } catch (error) {
@@ -55,7 +55,7 @@ export const updateUser = async (req: Request, res: Response, next: NextFunction
 export const deleteUser = async (req:Request,res:Response, next:NextFunction) => {
     try {
         const {_id} = req.params;
-        const user = await removeUser(_id);
+        const user = await removeJob(_id);
         return res.status(201).json({ status: "success", data: user })
         
     } catch (error) {

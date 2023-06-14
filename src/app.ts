@@ -4,13 +4,13 @@ import cors from "cors";
 const app: Application = express();
 
 // import route 
-import userRouter from "./src/app/modules/user/user.route";
+import jobRouter from "./app/modules/job/job.route";
 // use middleware
 app.use(cors());
 app.use(express.json());
 
 // use custom url 
-app.use("/user", userRouter)
+app.use("/job", jobRouter)
 
 app.get("/", (req: Request, res: Response, next: NextFunction) => res.status(201).send({ status: true, massage:"Hello World This is Pet-City Api!"}))
 

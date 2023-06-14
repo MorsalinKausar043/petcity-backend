@@ -1,6 +1,6 @@
 // const get user 
 import express from "express";
-import { createUserApi, deleteUser, getUser, getUsers, updateUser } from "./user.controller";
+import { createUserApi, deleteUser, getUser, getUsers, updateUser } from "./job.controller";
 const router = express.Router();
 
 // all users 
