@@ -1,7 +1,7 @@
 import { Schema, model } from "mongoose";
 import { IJob } from "./job.interface";
 
-const userSchema = new Schema<IJob>(
+const jobSchema = new Schema<IJob>(
   {
     title: {
       type: String,
@@ -27,10 +27,6 @@ const userSchema = new Schema<IJob>(
       type: String,
       required: true,
     },
-    url: {
-      type: String,
-      required: true,
-    },
     photoURL: {
       type: String,
       required: true,
@@ -39,6 +35,6 @@ const userSchema = new Schema<IJob>(
   { timestamps: true }
 );
 
-const Job = model<IJob>("Job", userSchema);
+const Job = model<IJob>("Job", jobSchema);
 
 export { Job };
