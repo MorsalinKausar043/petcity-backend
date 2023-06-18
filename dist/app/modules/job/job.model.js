@@ -2,7 +2,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.Job = void 0;
 const mongoose_1 = require("mongoose");
-const userSchema = new mongoose_1.Schema({
+const jobSchema = new mongoose_1.Schema({
     title: {
         type: String,
         required: true,
@@ -27,14 +27,10 @@ const userSchema = new mongoose_1.Schema({
         type: String,
         required: true,
     },
-    url: {
-        type: String,
-        required: true,
-    },
     photoURL: {
         type: String,
         required: true,
     },
 }, { timestamps: true });
-const Job = (0, mongoose_1.model)("Job", userSchema);
+const Job = (0, mongoose_1.model)("Job", jobSchema);
 exports.Job = Job;

@@ -9,35 +9,9 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.deleteUser = exports.updateUser = exports.createUserApi = exports.getUser = exports.getUsers = void 0;
+exports.getUsers = exports.getUser = exports.deleteUser = exports.updateUser = exports.createUserApi = void 0;
 const job_service_1 = require("./job.service");
-;
-// get all users 
-const getUsers = (req, res, next) => __awaiter(void 0, void 0, void 0, function* () {
-    try {
-        const users = yield (0, job_service_1.getJobsApi)();
-        return res.status(201).json({ status: "success", data: users });
-    }
-    catch (error) {
-        console.log(error);
-        return res.status(201).json({ massage: error });
-    }
-});
-exports.getUsers = getUsers;
-// get single users 
-const getUser = (req, res, next) => __awaiter(void 0, void 0, void 0, function* () {
-    try {
-        const { _id } = req.params;
-        const users = yield (0, job_service_1.getJobApi)(_id);
-        return res.status(201).json({ status: "success", data: users });
-    }
-    catch (error) {
-        console.log(error);
-        return res.status(201).json({ massage: error });
-    }
-});
-exports.getUser = getUser;
-// create a single user 
+// create a single user
 const createUserApi = (req, res, next) => __awaiter(void 0, void 0, void 0, function* () {
     try {
         const data = req.body;
@@ -50,7 +24,7 @@ const createUserApi = (req, res, next) => __awaiter(void 0, void 0, void 0, func
     }
 });
 exports.createUserApi = createUserApi;
-// create a single user 
+// patch a single user
 const updateUser = (req, res, next) => __awaiter(void 0, void 0, void 0, function* () {
     try {
         const { _id } = req.params;
@@ -64,7 +38,7 @@ const updateUser = (req, res, next) => __awaiter(void 0, void 0, void 0, functio
     }
 });
 exports.updateUser = updateUser;
-// create a single user 
+// delete a single user
 const deleteUser = (req, res, next) => __awaiter(void 0, void 0, void 0, function* () {
     try {
         const { _id } = req.params;
@@ -77,3 +51,28 @@ const deleteUser = (req, res, next) => __awaiter(void 0, void 0, void 0, functio
     }
 });
 exports.deleteUser = deleteUser;
+// get single users
+const getUser = (req, res, next) => __awaiter(void 0, void 0, void 0, function* () {
+    try {
+        const { _id } = req.params;
+        const users = yield (0, job_service_1.getJobApi)(_id);
+        return res.status(201).json({ status: "success", data: users });
+    }
+    catch (error) {
+        console.log(error);
+        return res.status(201).json({ massage: error });
+    }
+});
+exports.getUser = getUser;
+// get all users
+const getUsers = (req, res, next) => __awaiter(void 0, void 0, void 0, function* () {
+    try {
+        const users = yield (0, job_service_1.getJobsApi)();
+        return res.status(201).json({ status: "success", data: users });
+    }
+    catch (error) {
+        console.log(error);
+        return res.status(201).json({ massage: error });
+    }
+});
+exports.getUsers = getUsers;

@@ -12,22 +12,10 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.removeJob = exports.patchJob = exports.createJob = exports.getJobApi = exports.getJobsApi = void 0;
+exports.getJobsApi = exports.getJobApi = exports.removeJob = exports.patchJob = exports.createJob = void 0;
 const job_model_1 = require("./job.model");
 const mongoose_1 = __importDefault(require("mongoose"));
 const { ObjectId } = mongoose_1.default.Types;
-// get Jobs from DB
-const getJobsApi = () => __awaiter(void 0, void 0, void 0, function* () {
-    const result = yield job_model_1.Job.find();
-    return result;
-});
-exports.getJobsApi = getJobsApi;
-// get single Job from DB
-const getJobApi = (_id) => __awaiter(void 0, void 0, void 0, function* () {
-    const result = yield job_model_1.Job.findOne({ _id: new ObjectId(_id) });
-    return result;
-});
-exports.getJobApi = getJobApi;
 // create Job
 const createJob = (data) => __awaiter(void 0, void 0, void 0, function* () {
     const result = new job_model_1.Job(data);
@@ -49,3 +37,15 @@ const removeJob = (_id) => __awaiter(void 0, void 0, void 0, function* () {
     return result;
 });
 exports.removeJob = removeJob;
+// get single Job from DB
+const getJobApi = (_id) => __awaiter(void 0, void 0, void 0, function* () {
+    const result = yield job_model_1.Job.findOne({ _id: new ObjectId(_id) });
+    return result;
+});
+exports.getJobApi = getJobApi;
+// get Jobs from DB
+const getJobsApi = () => __awaiter(void 0, void 0, void 0, function* () {
+    const result = yield job_model_1.Job.find();
+    return result;
+});
+exports.getJobsApi = getJobsApi;

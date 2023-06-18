@@ -5,6 +5,5 @@ export type IJob = {
     jobCategory:string;
     location:string;
     description:string;
-    url: string;
     photoURL: string;
 };
