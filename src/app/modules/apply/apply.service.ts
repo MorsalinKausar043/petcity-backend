@@ -1,4 +1,3 @@
-
 import mongoose from "mongoose";
 import { IApply } from "./apply.interface";
 import { Apply } from "./apply.model";

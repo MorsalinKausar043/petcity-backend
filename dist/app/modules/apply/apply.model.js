@@ -7,15 +7,13 @@ const applySchema = new mongoose_1.Schema({
         type: String,
         required: true,
     },
-    name: {
-        firstName: {
-            type: String,
-            required: true,
-        },
-        lastName: {
-            type: String,
-            required: true,
-        },
+    firstName: {
+        type: String,
+        required: true,
+    },
+    lastName: {
+        type: String,
+        required: true,
     },
     email: {
         type: String,
@@ -35,8 +33,8 @@ const applySchema = new mongoose_1.Schema({
     },
     status: {
         type: Boolean,
-        default: false
-    }
+        default: false,
+    },
 }, { timestamps: true });
 const Apply = (0, mongoose_1.model)("apply", applySchema);
 exports.Apply = Apply;
